@@ -21,7 +21,7 @@ def on_message(client, userdata, message):
     message_received=str(message.payload.decode("utf-8"))
     st.write(message_received)
 
-broker="157.230.214.127"
+broker="broker.mqttdashboard.com"
 port=1883
 client1= paho.Client("GIT-HUBC")
 client1.on_message = on_message
