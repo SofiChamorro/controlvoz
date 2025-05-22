@@ -119,6 +119,8 @@ if st.session_state.sensor_data:
     except ValueError:
         st.warning("La temperatura es normal")
 
+
+
 # Mostrar historial de mensajes
 if st.session_state.messages:
     st.markdown("---")
