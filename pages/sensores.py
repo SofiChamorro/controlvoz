@@ -115,9 +115,9 @@ if st.session_state.sensor_data:
     temp = st.session_state.sensor_data.get('Temp') or st.session_state.sensor_data.get('temperatura')
     try:
         if temp and float(temp) > 30:
-            st.image("https://i.imgur.com/sZ5B4vM.png", caption="🌡️ ¡Alta temperatura detectada!", use_column_width=True)
+            st.image("imagentemp.png")
     except ValueError:
-        st.warning("⚠️ El valor de temperatura no es válido.")
+        st.warning("La temperatura es normal")
 
 # Mostrar historial de mensajes
 if st.session_state.messages:
