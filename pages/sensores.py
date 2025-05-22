@@ -111,6 +111,14 @@ if st.button("🔍 Escuchar Tópico", type="primary"):
         else:
             st.warning("⚠️ No se recibió ningún mensaje en 10 segundos")
 
+if st.session_state.sensor_data:
+    temp = st.session_state.sensor_data.get('Temp') or st.session_state.sensor_data.get('temperatura')
+    try:
+        if temp and float(temp) > 30:
+            st.image("https://i.imgur.com/sZ5B4vM.png", caption="🌡️ ¡Alta temperatura detectada!", use_column_width=True)
+    except ValueError:
+        st.warning("⚠️ El valor de temperatura no es válido.")
+
 # Mostrar historial de mensajes
 if st.session_state.messages:
     st.markdown("---")
