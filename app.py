@@ -49,8 +49,8 @@ def add_bg_from_local(image_file):
 add_bg_from_local("huerta.jpeg")
 
 
-st.title("INTERFACES MULTIMODALES")
-st.subheader("CONTROL POR VOZ")
+st.title("🌿 Huerta Sofi 🍅")
+st.subheader("Activa y apaga ventilador o riego")
 st.write("Toca el Botón y habla ")
 
 stt_button = Button(label=" Inicio ", width=200)
