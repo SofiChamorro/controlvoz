@@ -3,6 +3,19 @@ import paho.mqtt.client as mqtt
 import json
 import time
 from datetime import datetime
+st.markdown("""
+    <style>
+        /* Cambia el color de fondo del sidebar */
+        [data-testid="stSidebar"] {
+            background-color: #d2f8d2;  /* verde pastel claro */
+        }
+
+        /* Opcional: cambia el color del texto del sidebar */
+        [data-testid="stSidebar"] * {
+            color: #1a3c1a;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Configuración MQTT
 MQTT_BROKER = "broker.mqttdashboard.com"
