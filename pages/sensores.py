@@ -157,7 +157,7 @@ if st.session_state.sensor_data:
 if st.session_state.sensor_data:
     hum = st.session_state.sensor_data.get('Hum') or st.session_state.sensor_data.get('humedad')
     try:
-        if hum and float(hum) >50:
+        if hum and float(hum) <50:
             st.image("imagenhum.png")
     except ValueError:
         st.warning("La humedad es mayor al 50%")
