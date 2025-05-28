@@ -33,18 +33,27 @@ def add_bg_from_local(image_file):
     st.markdown(
          f"""
          <style>
-         .stApp {{
-             background-image: url("data:image/jpeg;base64,{encoded_string}");
-             opacity: 0.15;
-             background-position: right;
-             background-repeat: no-repeat;
-             background-attachment: fixed;
-             
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
+        .stApp {{
+            position: relative;
+        }}
+        .stApp::before {{
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/jpeg;base64,{encoded_string}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.15;  /* Ajusta este valor para más o menos opacidad */
+            z-index: -1;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # Llama la función con tu imagen
 add_bg_from_local("huerta.jpeg")
