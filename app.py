@@ -1,3 +1,4 @@
+import base64
 import os
 import streamlit as st
 from bokeh.models.widgets import Button
@@ -25,6 +26,27 @@ broker="broker.mqttdashboard.com"
 port=1883
 client1= paho.Client("GIT-HUBC")
 client1.on_message = on_message
+
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as img_file:
+        encoded_string = base64.b64encode(img_file.read()).decode()
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("data:image/jpeg;base64,{encoded_string}");
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+# Llama la función con tu imagen
+add_bg_from_local("huerta.jpeg")
 
 
 st.title("INTERFACES MULTIMODALES")
