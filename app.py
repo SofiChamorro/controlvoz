@@ -55,7 +55,7 @@ st.write("Toca el Botón y habla ")
 
 
 # Botón Bokeh con clase CSS personalizada
-stt_button = Button(label="🎤 Audio", width=200)
+stt_button = Button(label="🎤 Audio", width=200, position=center)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
