@@ -137,7 +137,7 @@ if st.button("🔍 Conocer datos de mi huerta", type="primary"):
                 
                 if 'Hum' in sensor_data or 'humedad' in sensor_data:
                     hum = sensor_data.get('Hum') or sensor_data.get('humedad')
-                    st.metric("💧 Humedad", f"{hum}%")
+                    st.metric("💧 Humedad", f"{hum}")
                     
             else:
                 # Si es texto plano, mostrarlo en un código block
