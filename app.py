@@ -26,6 +26,25 @@ port=1883
 client1= paho.Client("GIT-HUBC")
 client1.on_message = on_message
 
+# Mostrar imagen de fondo con CSS
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as img_file:
+        encoded_string = img_file.read().encode("base64").decode()
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url(data:image/jpeg;base64,{encoded_string});
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_local("huerta.jpeg")
 
 
 st.title("INTERFACES MULTIMODALES")
