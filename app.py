@@ -11,6 +11,19 @@ import paho.mqtt.client as paho
 import json
 from gtts import gTTS
 from googletrans import Translator
+st.markdown("""
+    <style>
+        /* Cambia el color de fondo del sidebar */
+        [data-testid="stSidebar"] {
+            background-color: #d2f8d2;  /* verde pastel claro */
+        }
+
+        /* Opcional: cambia el color del texto del sidebar */
+        [data-testid="stSidebar"] * {
+            color: #1a3c1a;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 def on_publish(client,userdata,result):             #create function for callback
     print("el dato ha sido publicado \n")
