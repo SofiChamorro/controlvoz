@@ -67,7 +67,7 @@ def get_mqtt_message():
         return None
 
 # Título de la aplicación
-st.title('🌱 Monitor MQTT - Huerta Sofia')
+st.title('🌱 Monitor MQTT')
 
 with st.sidebar:
     st.subheader("Información de Conexión")
@@ -79,7 +79,7 @@ with st.sidebar:
 st.subheader("📡 Datos del Sensor")
 
 # Botón para obtener mensaje MQTT
-if st.button("🔍 Escuchar Tópico", type="primary"):
+if st.button("🔍 Conocer datos de mi huerta", type="primary"):
     with st.spinner('Esperando mensaje del sensor...'):
         sensor_data = get_mqtt_message()
         
