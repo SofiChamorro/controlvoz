@@ -53,7 +53,32 @@ st.title("🌿 Huerta Sofi 🍅")
 st.subheader("Activa y apaga ventilador o riego")
 st.write("Toca el Botón y habla ")
 
-stt_button = Button(label=" Inicio ", width=200)
+# Estilo CSS personalizado para el botón
+custom_button_style = """
+<style>
+.bk-root .nice-button button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.bk-root .nice-button button:hover {
+    background-color: #45a049;
+}
+</style>
+"""
+
+# Mostrar estilo en Streamlit
+st.markdown(custom_button_style, unsafe_allow_html=True)
+
+# Botón Bokeh con clase CSS personalizada
+stt_button = Button(label="🎤 Audio", width=200, css_classes=["nice-button"])
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
