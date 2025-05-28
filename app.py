@@ -47,57 +47,10 @@ def add_bg_from_local(image_file):
 # Llama la función con tu imagen
 add_bg_from_local("huerta.jpeg")
 
-with st.container():
-    st.markdown(
-        """
-        <style>
-        .custom-box {
-            background-color: #b8e1b5;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-        </style>
-        <div class="custom-box">
-        """,
-        unsafe_allow_html=True
-    )
 
-    st.markdown("## INTERFACES MULTIMODALES", unsafe_allow_html=True)
-    st.markdown("### CONTROL POR VOZ", unsafe_allow_html=True)
-    st.write("Toca el Botón y habla ")
-
-    stt_button = Button(label=" Inicio ", width=200)
-
-    stt_button.js_on_event("button_click", CustomJS(code="""
-        var recognition = new webkitSpeechRecognition();
-        recognition.continuous = true;
-        recognition.interimResults = true;
-
-        recognition.onresult = function (e) {
-            var value = "";
-            for (var i = e.resultIndex; i < e.results.length; ++i) {
-                if (e.results[i].isFinal) {
-                    value += e.results[i][0].transcript;
-                }
-            }
-            if ( value != "") {
-                document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: value}));
-            }
-        }
-        recognition.start();
-    """))
-
-    result = streamlit_bokeh_events(
-        stt_button,
-        events="GET_TEXT",
-        key="listen",
-        refresh_on_update=False,
-        override_height=75,
-        debounce_time=0)
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
+st.title("INTERFACES MULTIMODALES")
+st.subheader("CONTROL POR VOZ")
+st.write("Toca el Botón y habla ")
 
 stt_button = Button(label=" Inicio ", width=200)
 
