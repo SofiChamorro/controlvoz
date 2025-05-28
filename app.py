@@ -38,6 +38,7 @@ def add_bg_from_local(image_file):
              background-position: right;
              background-repeat: no-repeat;
              background-attachment: fixed;
+             opacity: 0.15;
          }}
          </style>
          """,
