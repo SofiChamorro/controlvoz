@@ -66,6 +66,27 @@ def get_mqtt_message():
         st.error(f"Error de conexión: {e}")
         return None
 
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as img_file:
+        encoded_string = base64.b64encode(img_file.read()).decode()
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("data:image/jpeg;base64,{encoded_string}");
+             background-size: cover;
+             background-position: right;
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+# Llama la función con tu imagen
+add_bg_from_local("huerta.jpeg")
+
 # Título de la aplicación
 st.title('🌱 Monitor MQTT')
 
